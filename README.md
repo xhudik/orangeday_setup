@@ -14,5 +14,8 @@ In case of problems, fix scripts and re-run with:
     vagrant provision
     
 
-If any further question on Orange day - ask Andrew :)
+Once all is fine, run VirtualBox and open `webscraping` instance.
+Looking forward to see you all!
+    
+If any further question - ask Andrew :)
     
