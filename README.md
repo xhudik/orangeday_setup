@@ -15,7 +15,8 @@ In case of problems, fix scripts and re-run with:
     
 
 Once all is fine, run VirtualBox and open `webscraping` instance.
-Looking forward to see you all!
+**Dont forget to bring your laptop with all tools!!!**Looking forward to see you all!
     
+
 If any further question - ask Andrew :)
     
