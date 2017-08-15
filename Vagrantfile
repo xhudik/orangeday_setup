@@ -5,7 +5,7 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "boxcutter-VAGRANTSLASH-debian8-i386"
+  config.vm.box = "boxcutter/debian8-i386"
   config.ssh.insert_key = false
 
   config.vm.provider :virtualbox do |v|
