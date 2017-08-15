@@ -1,8 +1,14 @@
 ## Setup for Orange day 2017-09-08
 
-Download Vagrant and VirtualBox. Then clone this repo:
+Install Vagrant, VirtualBox, Ansible. Then, clone this repo:
    
     git clone https://github.com/xhudik/orangeday_setup
+
+If you are willing to work on 64bit OS, change branch to `orangeday_setup64`
+
+    git checkout orangeday_setup64
+
+(kudos to @OliveiraThinkBig)
 
 In directory with `Vagrantfile` run:
 
