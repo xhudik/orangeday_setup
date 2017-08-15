@@ -95,11 +95,11 @@
     command: R -f /tmp/setup_packages.R
     
   - name: Download Rstudio desktop
-    get_url: url="https://download1.rstudio.org/rstudio-1.0.153-i386.deb"
-       dest="/tmp/rstudio-1.0.153-i386.deb"    
+    get_url: url="https://download1.rstudio.org/rstudio-xenial-1.0.153-amd64.deb"
+       dest="/tmp/rstudio-xenial-1.0.153-amd64.deb"    
 
   - name: Install Rstudio desktop
-    apt: deb="/tmp/rstudio-1.0.153-i386.deb"
+    apt: deb="/tmp/rstudio-xenial-1.0.153-amd64.deb"
 
   - name: Create directory for dektop.ini
     file: path="/home/karel/.config/RStudio" state=directory mode=0755    
