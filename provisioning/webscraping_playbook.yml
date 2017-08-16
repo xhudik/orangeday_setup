@@ -84,16 +84,32 @@
       - libssl-dev
       - libxml2-dev
 
-  - name: Transfer and execute a script to add test repo that allows the installation of test GCC
-    hosts: all
-    remote_user: root
-    tasks:
-      - name: Transfer the script
-        copy: src=add_testGCC.sh dest=/tmp/add_testGCC.sh
+  - name: Add trusty main repo
+    apt_repository:
+      repo: deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
+      state: present
+      filename: 'sources.list'
 
-      - name: Execute the script
-        command: ./tmp/add_testGCC.sh      
-      
+  - name: creating file test_repo.list with testing main repository
+    command: "{{ item }} chdir=/etc/apt/sources.list.d/"
+    with_items:
+      - touch test_repo.list
+      - echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> test_repo.list
+
+  - name: setting preferences for testing main repository
+    command: "{{ item }} chdir=/etc/apt/preferences.d/"
+    with_items:
+      - touch test_pref
+      - echo "Package: *" >> test_pref
+      - echo "Pin: release a=testing" >> test_pref
+      - echo "Pin-Priority: 100" >> test_pref
+
+  - name: apt-get update
+    command: apt-get update
+
+  - name: apt-get update
+    command: apt-get install -t testing gcc -y
+
   - name: Reconfigure R to find installed Java framework on the system      
     command: R CMD javareconf    
     
