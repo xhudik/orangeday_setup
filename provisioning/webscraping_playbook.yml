@@ -83,7 +83,16 @@
       - libcurl3-dev
       - libssl-dev
       - libxml2-dev
-      
+
+  - name: Transfer and execute a script to add test repo that allows the installation of test GCC
+    hosts: all
+    remote_user: root
+    tasks:
+      - name: Transfer the script
+        copy: src=add_testGCC.sh dest=/tmp/add_testGCC.sh
+
+      - name: Execute the script
+        command: ./tmp/add_testGCC.sh      
       
   - name: Reconfigure R to find installed Java framework on the system      
     command: R CMD javareconf    
