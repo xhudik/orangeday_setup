@@ -3,22 +3,24 @@
 Install Vagrant, VirtualBox, Ansible. Then, 
 1. clone this repo:
    
-    git clone https://github.com/xhudik/orangeday_setup
+    `git clone https://github.com/xhudik/orangeday_setup`
 
 2. (only for 64 bit geeks) If you are willing to work on 64bit OS, change branch to `orangeday_setup64`
 
-    git checkout orangeday_setup64
+    `git checkout orangeday_setup64`
 
 (kudos to @OliveiraThinkBig)
 
 3. In directory with `Vagrantfile` run:
 
+```
     vagrant up
     vagrant vbguest
+```
     
 4. In case of problems, fix scripts and re-run with:
 
-    vagrant provision
+    `vagrant provision`
     
 
 
