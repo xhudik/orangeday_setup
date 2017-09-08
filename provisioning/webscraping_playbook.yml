@@ -64,7 +64,12 @@
       repo: deb http://mirrors.nic.cz/R/bin/linux/debian/ jessie-cran34/
       state: present
       filename: 'R_repo'
-      
+
+  - name: Add trusty main repo
+    apt_repository:
+      repo: deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main
+      state: present
+      filename: 'trustyMain'      
       
   - name: Update all packages to the latest version
     apt:
@@ -83,8 +88,24 @@
       - libcurl3-dev
       - libssl-dev
       - libxml2-dev
-      
-      
+
+  - name: Add testing main contrib non-free
+    apt_repository:
+      repo: deb http://ftp.us.debian.org/debian testing main contrib non-free
+      filename: 'testingMain'
+
+  - name: setting preferences for testing main repository
+    command: "{{ item }} chdir=/etc/apt/preferences.d/"
+    with_items:
+      - touch test_pref
+      - echo "Package *" >> test_pref
+      - echo "Pin release a=testing" >> test_pref
+      - echo "Pin-Priority 100" >> test_pref
+
+  - name: apt-get update
+    apt:
+      update_cache: yes
+
   - name: Reconfigure R to find installed Java framework on the system      
     command: R CMD javareconf    
     
