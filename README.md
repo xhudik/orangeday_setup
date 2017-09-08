@@ -31,6 +31,7 @@ Once all is fine, run VirtualBox and open `webscraping` instance.
    apt-get install -t testing gcc -y
    ```
    This will install the testing version of GCC
+   
    NOTE: it's not recommended to use this version because other issues might appear due being the testing version of GCC.
          I had no issues but you never know...
 
